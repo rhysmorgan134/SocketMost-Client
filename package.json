@@ -1,0 +1,19 @@
+{
+  "name": "socketmost-client",
+  "version": "1.0.0",
+  "description": "Library to interface to socketmost",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhysmorgan134/SocketMost-Client.git"
+  },
+  "author": "Rhys_M",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhysmorgan134/SocketMost-Client/issues"
+  },
+  "homepage": "https://github.com/rhysmorgan134/SocketMost-Client#readme"
+}
