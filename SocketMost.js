@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 const Dgram = require('./DataGram')
-=======
-const net = require('net')
->>>>>>> 5d857c9ded27d55a2bbf2b0efe7d506af398b4d4
+
 const EventEmitter = require('events')
 
 class Os8104Client extends EventEmitter{
     constructor() {
         super()
-<<<<<<< HEAD
         this._client = new Dgram("/tmp/SocketMost-client.sock", "/tmp/SocketMost.sock");
 
         this._client.on("connect", () => {
@@ -16,13 +12,6 @@ class Os8104Client extends EventEmitter{
             this.getPositions().then(() => {
                 console.log("resolved")
             })
-=======
-        this._client = net.createConnection("/tmp/SocketMost.sock");
-
-        this._client.on("connect", () => {
-            console.log("connected")
-            this.getPositions()
->>>>>>> 5d857c9ded27d55a2bbf2b0efe7d506af398b4d4
         });
 
         this.maxPosition = 0
@@ -53,7 +42,6 @@ class Os8104Client extends EventEmitter{
                 case 'shutDown':
                     console.log('shutDownEvent')
                     this.emit('shutDown')
-<<<<<<< HEAD
                     break
                 case 'messageSent':
                     this.emit('messageSent')
@@ -63,15 +51,11 @@ class Os8104Client extends EventEmitter{
                     break
                 case 'allocResult':
                     this.emit('allocResult', message)
-=======
-
->>>>>>> 5d857c9ded27d55a2bbf2b0efe7d506af398b4d4
             }
         });
     }
 
     getPositions() {
-<<<<<<< HEAD
         return new Promise((resolve, reject) => {
             let data = {
                 eventType: 'getNodePosition'
@@ -86,13 +70,6 @@ class Os8104Client extends EventEmitter{
                 resolve()
             })
         })
-
-=======
-        let data = {
-            eventType: 'getNodePosition'
-        }
-        this.sendAppMessage(data)
->>>>>>> 5d857c9ded27d55a2bbf2b0efe7d506af398b4d4
     }
 
     parseMostMessage (message) {
@@ -107,10 +84,6 @@ class Os8104Client extends EventEmitter{
             sourceAddrHigh: message.sourceAddrHigh,
             sourceAddrLow: message.sourceAddrLow
         }
-<<<<<<< HEAD
-=======
-        //console.log(data)
->>>>>>> 5d857c9ded27d55a2bbf2b0efe7d506af398b4d4
 
         let messageOut = {...data}
         messageOut.data = [...message.data]
@@ -123,7 +96,6 @@ class Os8104Client extends EventEmitter{
     }
 
     sendAppMessage(data) {
-<<<<<<< HEAD
         this._client.write(JSON.stringify(data))
     }
 
@@ -148,9 +120,6 @@ class Os8104Client extends EventEmitter{
 
     allocate() {
         this._client.write(JSON.stringify({eventType: 'allocate'}))
-=======
-        this._client.write(JSON.stringify(data) + '\r\n')
->>>>>>> 5d857c9ded27d55a2bbf2b0efe7d506af398b4d4
     }
 }
 
