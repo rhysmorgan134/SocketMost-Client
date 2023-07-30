@@ -1,5 +1,4 @@
 const Dgram = require('./DataGram')
-
 const EventEmitter = require('events')
 
 class Os8104Client extends EventEmitter{
@@ -39,9 +38,8 @@ class Os8104Client extends EventEmitter{
                     this.nodePosition = message.nodePosition
                     this.emit('positionUpdate', {maxPosition: this.maxPosition, nodePosition: this.nodePosition})
                     break
-                case 'shutDown':
-                    console.log('shutDownEvent')
-                    this.emit('shutDown')
+                case 'locked':
+                    this.emit('locked')
                     break
                 case 'messageSent':
                     this.emit('messageSent')
@@ -63,7 +61,7 @@ class Os8104Client extends EventEmitter{
             this.sendAppMessage(data)
             let positionTimeout = setTimeout(() => {
                 console.log('position request timed out')
-            }, 10)
+            }, 20)
             this.once('positionUpdate', () => {
                 console.log('resolving')
                 clearTimeout(positionTimeout)
@@ -124,8 +122,3 @@ class Os8104Client extends EventEmitter{
 }
 
 module.exports = Os8104Client
-
-
-
-
-
