@@ -78,7 +78,7 @@ class Os8104Client extends EventEmitter{
             opType: ((message.data.readUint16BE(2) & 0xF)),
             telId: (message.data.readUint8(4) & 0xF0) >>4,
             telLen: (message.data.readUint8(4) & 0xF),
-            data: message.type > 0x01 ? message.data.slice(5, message.data.length - 1) : message.data.slice(5),
+            data: message.type > 0x01 ? message.data.slice(0, message.data.length - 1) : message.data,
             sourceAddrHigh: message.sourceAddrHigh,
             sourceAddrLow: message.sourceAddrLow
         }
