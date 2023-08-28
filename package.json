@@ -1,6 +1,6 @@
 {
   "name": "socketmost-client",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Library to interface to socketmost",
   "main": "index.js",
   "scripts": {

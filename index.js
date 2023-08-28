@@ -19,6 +19,7 @@ const Sources = require('./functions/interfaces/Sources')
 const Climate = require('./functions/interfaces/Climate')
 const Unknown = require('./functions/interfaces/Unknown')
 const Function = require('./functions/interfaces/FBlock')
+const enums = require('./functions/enums')
 const SocketMostClient = require('./SocketMost')
 
 module.exports = {
@@ -36,5 +37,6 @@ module.exports = {
     AuxIn,
     Vehicle,
     Function,
-    SocketMostClient
+    SocketMostClient,
+    enums
 }
