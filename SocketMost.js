@@ -123,6 +123,10 @@ class Os8104Client extends EventEmitter{
     stream(data) {
         this._client.write(JSON.stringify({eventType: 'stream', ...data}) + '\r\n')
     }
+
+    retrieveAudio(data) {
+        this._client.write(JSON.stringify({eventType: 'retrieveAudio', ...data}))
+    }
 }
 
 module.exports = Os8104Client
